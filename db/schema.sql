@@ -5,14 +5,15 @@ CREATE DATABASE employee_db;
 --connects to this database
 \c employee_db;
 
---code below creates three new tables
---table "role" foreign key references department(id)
--- table "employee" foreign key references role(id)
+--code below creates three new tables:
+
+-- the serial primary key gives each row a unique key
 CREATE TABLE department (
 id SERIAL PRIMARY KEY,
 name VARCHAR(30) UNIQUE NOT NULL
 );
 
+--the foreign key in the table below connects to the "department" table above
 CREATE TABLE role(
 id SERIAL PRIMARY KEY,
 title VARCHAR(30) UNIQUE NOT NULL,
@@ -23,6 +24,7 @@ REFERENCES department(id)
 ON DELETE CASCADE
 );
 
+-- the role_id column in the table below connects to the "role" table shown above 
 CREATE TABLE employee(
 id SERIAL PRIMARY KEY,
 first_name VARCHAR(30) NOT NULL,
