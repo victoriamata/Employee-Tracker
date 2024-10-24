@@ -1,4 +1,4 @@
--- creates a new db from a clean slate and connects to it 
+-- creates a new db from a clean slate
 DROP DATABASE IF EXISTS employee_db;
 CREATE DATABASE employee_db;
 
