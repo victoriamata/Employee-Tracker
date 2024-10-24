@@ -5,7 +5,7 @@ CREATE DATABASE employee_db;
 --connects to this database
 \c employee_db;
 
---creates three new tables
+--code below creates three new tables
 --table "role" foreign key references department(id)
 -- table "employee" foreign key references role(id)
 CREATE TABLE department (
@@ -20,6 +20,7 @@ salary DECIMAL NOT NULL,
 department_id INTEGER NOT NULL 
 FOREIGN KEY (department_id)
 REFERENCES department(id)
+ON DELETE CASCADE
 );
 
 CREATE TABLE employee(
@@ -30,6 +31,9 @@ role_id INTEGER NOT NULL
 FOREIGN KEY (role_id)
 REFERENCES role(id)
 manager_id INTEGER 
+FOREIGN KEY (manager_id)
+REFERENCES employee(id)
+ON DELETE SET NULL
 );
 
 
