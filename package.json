@@ -1,0 +1,22 @@
+{
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "node.js",
+    "inquirer"
+  ],
+  "author": "Victoria Mata",
+  "license": "ISC",
+  "dependencies": {
+    "inquirer": "^12.0.0",
+    "node.js": "^0.0.1-security",
+    "pg": "^8.13.1"
+  }
+}
