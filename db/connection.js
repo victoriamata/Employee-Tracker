@@ -12,9 +12,14 @@ const pool = new Pool({
   port: 5432, // default port//
 });
 // logs messages to advise if the connection was sucessful or failed:
-pool.connect(err => {
-  if (err) throw err;
-  console.log('Database successfully connected.');
-});
+const connectToDb = async () => {
+  try {
+    await pool.connect();
+    console.log('Database successfully connected.');
+  } catch (err) {
+    console.error('Error connecting to database:', err);
+    process.exit(1);
+  }
+};
 
-export default { pool };
+export { pool, connectToDb };

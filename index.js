@@ -1,13 +1,15 @@
 // import modules
 import inquirer from 'inquirer';
-import pool from "./db/connection.js";
+import { pool, connectToDb } from "./db/connection.js";
 
-console.log('hello');
+await connectToDb();
+
+employeePrompts();
+
 // The function that will allow the user to be redirected back to the main prompts:
-const employeePrompts = function () {
+function  employeePrompts() {
   // Using the inquirer package, list options for the user to navigate to:
-  inquirer
-    .prompt([
+ inquirer.prompt([
       {
         type: "list",
         message: "What would you like to do?",
@@ -23,7 +25,7 @@ const employeePrompts = function () {
         ],
       },
     ])
-    .then((answers) => {
+.then((answers) => {
       if (answers.prompt === "View All Departments") {
         // pool.query directs the server to view the departments table, and if there is an error, the error message will be displayed.
         pool.query(`SELECT * FROM department`, (err, result) => {
