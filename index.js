@@ -1,4 +1,4 @@
-// import modules
+// Import modules
 import inquirer from "inquirer";
 import { pool, connectToDb } from "./db/connection.js";
 
@@ -33,7 +33,7 @@ function employeePrompts() {
       if (answers.prompt === "View All Departments") {
         pool.query(`SELECT * FROM department`, (err, result) => {
           if (err) throw err;
-          console.table(result.rows);
+          console.table(result.rows); // Shows table from the database.
           employeePrompts();
         });
       } else if (answers.prompt === "View All Roles") {
@@ -56,7 +56,7 @@ function employeePrompts() {
               name: "department",
               message: "Enter department name:",
               validate: (departmentInput) =>
-                !!departmentInput || "Please enter a valid department name.",
+                !!departmentInput || "Please enter a valid department name.", // Show message if response was left blank
             },
           ])
           .then((answers) => {
@@ -73,7 +73,7 @@ function employeePrompts() {
             );
           });
       } else if (answers.prompt === "Add a Role") {
-        // First, fetch the departments from the database
+        // Fetch the departments from the database
         pool.query("SELECT id, name FROM department", (err, result) => {
           if (err) throw err;
 
@@ -122,8 +122,8 @@ function employeePrompts() {
           if (err) throw err;
           // Create choices from the result for roles
           const roleChoices = result.rows.map((role) => ({
-            name: role.title, // Display name
-            value: role.id, // Value is the id for foreign key
+            name: role.title,
+            value: role.id,
           }));
           // Prompt for employee details
           inquirer
@@ -182,7 +182,7 @@ function employeePrompts() {
             });
         });
       } else if (answers.prompt === "Update Employee Role") {
-        // First, fetch the list of employees from the database
+        // Fetch the list of employees from the database
         pool.query(
           "SELECT id, first_name, last_name FROM employee",
           (err, result) => {
@@ -246,7 +246,7 @@ function employeePrompts() {
           }
         );
       } else if (answers.prompt === "Delete an Employee") {
-        // First, fetch the list of employees from the database
+        // Fetch the list of employees from the database
         pool.query(
           "SELECT id, first_name, last_name FROM employee",
           (err, result) => {
@@ -295,7 +295,7 @@ function employeePrompts() {
         );
       } else if (answers.prompt === "Exit") {
         pool.end();
-        console.log("Have a great day!");
+        console.log("Have a great day!"); //Exit message
       }
     });
 }

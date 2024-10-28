@@ -1,23 +1,23 @@
-import pg from 'pg';
+import pg from "pg";
 const { Pool } = pg;
 
-import dotenv from 'dotenv';
-dotenv.config();
+import dotenv from "dotenv";
+dotenv.config(); // Connecting to .env file
 
 const pool = new Pool({
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
-  host: 'localhost',
+  host: "localhost",
   database: process.env.DB_NAME,
-  port: 5432, // default port//
+  port: 5432, // Default port//
 });
-// logs messages to advise if the connection was sucessful or failed:
+// Logs messages to advise if the connection was sucessful or failed:
 const connectToDb = async () => {
   try {
     await pool.connect();
-    console.log('Database successfully connected.');
+    console.log("Database successfully connected.");
   } catch (err) {
-    console.error('Error connecting to database:', err);
+    console.error("Error connecting to database:", err);
     process.exit(1);
   }
 };
