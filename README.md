@@ -11,7 +11,10 @@
    ## Installation:
    Clone this repository using the following line: . Run the command in your terminal "npm i " to install the dependencies that are in the package.json file. Run in the command line "npm run start" or "node index.js" to begin working with the application.
    ## Usage:
-   After starting the app, navigate to different options using your up and down arrow keys and select "enter" on your keyboard to select a choice. Type in your inputs and hit enter. ***Screenshot of app coming soon*** 
+   After starting the app, navigate to different options using your up and down arrow keys and select "enter" on your keyboard to select a choice. Type in your inputs and hit enter.
+   
+   ![](./assets/screenshot.png)
+
    ## License: 
    [![License: MIT](https://img.shields.io/badge/License-MIT-purple.svg)](https://opensource.org/licenses/MIT)
    [Click to read more!](https://opensource.org/licenses/MIT)
